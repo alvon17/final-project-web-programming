@@ -72,7 +72,9 @@ class AuthController extends Controller
             'country_id' => $data['country_id'],
         ]);
 
-        session()->flash('message', 'Registration successful!');
+        Session::flash('message', 'Registration Succesful!');
+        Session::flash('title', 'Optional Title');
+        Session::flash('type', 'success');
 
         return redirect('login');
     }

@@ -4,7 +4,11 @@
     @if (session()->has('message'))
         @foreach (explode('-', session('message')) as $message)
             <script>
-                alert('{{ $message }}');    
+                Swal.fire({
+                    title: '{{ session('title') }}',
+                    text: '{{ session('message') }}',
+                    type: '{{ session('type') }}',
+                });
             </script>
         @endforeach
     @endif
