@@ -72,7 +72,9 @@ class AuthController extends Controller
             'country_id' => $data['country_id'],
         ]);
 
-        return redirect('login')->withSuccess('You have registered');
+        session()->flash('message', 'Registration successful!');
+
+        return redirect('login');
     }
 
     public function dashboard()

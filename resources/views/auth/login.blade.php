@@ -1,6 +1,14 @@
 @extends('dashboard')
 @section('title', 'login')
 @section('content')
+    @if (session()->has('message'))
+        @foreach (explode('-', session('message')) as $message)
+            <script>
+                alert('{{ $message }}');
+            </script>
+        @endforeach
+    @endif
+
     <div class="login-form">
         <div class="container-fluid">
             <div class="row justify-content-center">
