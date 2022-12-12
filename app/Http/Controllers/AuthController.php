@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
+use App\Models\Country;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\MessageBag;
@@ -20,7 +21,8 @@ class AuthController extends Controller
 
     public function registration()
     {
-        return view('auth.registration');
+        $countries = Country::all();
+        return view('auth.registration', ['countries' => $countries]);
     }
 
     public function customLogin(Request $request)
@@ -56,7 +58,7 @@ class AuthController extends Controller
             'confirm_password' => 'required|same:password',
             'gender' => 'required',
             'date_of_birth' => 'required|date|after:01/01/1900|before:today',
-            'country' => 'required',
+            'country_id' => 'required',
         ]);
 
         $data = $request->all();
@@ -67,7 +69,7 @@ class AuthController extends Controller
             'password' => Hash::make($data['password']),
             'gender' => $data['gender'],
             'date_of_birth' => $data['date_of_birth'],
-            'country' => $data['country'],
+            'country_id' => $data['country_id'],
         ]);
 
         return redirect('login')->withSuccess('You have registered');

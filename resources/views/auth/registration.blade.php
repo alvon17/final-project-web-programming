@@ -45,33 +45,34 @@
                                 <div class="form-group mb-3">
                                     <label class="mb-2"> Gender </label><br>
                                     <!-- <input type="radio" placeholder="Confirm Password" id="password"
-                                        class="form-control" name="confirm_password" required> -->
-                                        <input type="radio" id="male" name="gender" value="male">
-                                            <label for="male">Male</label><br>
-                                        <input type="radio" id="female" name="gender" value="female">
-                                            <label for="female">Female</label><br>
+                                                            class="form-control" name="confirm_password" required> -->
+                                    <input type="radio" id="male" name="gender" value="male">
+                                    <label for="male">Male</label><br>
+                                    <input type="radio" id="female" name="gender" value="female">
+                                    <label for="female">Female</label><br>
                                     @if ($errors->has('gender'))
                                         <span class="text-danger">{{ $errors->first('gender') }}</span>
                                     @endif
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="mb-2"> Date of Birth </label>
-                                    <input type="date"
-                                        class="form-control" name="date_of_birth" value = "date_of_birth" id="date_of_birth">
+                                    <input type="date" class="form-control" name="date_of_birth" value="date_of_birth"
+                                        id="date_of_birth">
                                     @if ($errors->has('date_of_birth'))
                                         <span class="text-danger">{{ $errors->first('date_of_birth') }}</span>
                                     @endif
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="mb-2"> Country </label>
-                                    <select class="form-select form-select-sm" name = "country" value ="country" id ="country">
+                                    <select class="form-select form-select-sm" name="country_id" value="country_id"
+                                        id="country_id">
                                         <option selected>Choose a country</option>
                                         @foreach ($countries as $country)
-                                            <option value = "{{ $country -> id }}"> {{ $country -> country }}" </option>
+                                            <option value="{{ $country->id }}"> {{ $country->country }} </option>
                                         @endforeach
-                                        <option value="1">Indonesia</option>
+                                        {{-- <option value="1">Indonesia</option>
                                         <option value="2">Malaysia</option>
-                                        <option value="3">Filipina</option>
+                                        <option value="3">Filipina</option> --}}
                                     </select>
                                     @if ($errors->has('country'))
                                         <span class="text-danger">{{ $errors->first('country') }}</span>

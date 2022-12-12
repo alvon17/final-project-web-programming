@@ -21,9 +21,11 @@ return new class extends Migration
             $table->string('password');
             $table->string('gender');
             $table->date('date_of_birth');
-            $table->string('country');
+            $table->foreignId('country_id');
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('country_id')->references('id')->on('countries');
         });
     }
 
