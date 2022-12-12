@@ -54,8 +54,8 @@ class AuthController extends Controller
         $request->validate([
             'name' => 'required|min:5',
             'email' => 'required|email|unique:users|regex:/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/',
-            'password' => 'required|min:8',
-            'confirm_password' => 'required|same:password',
+            'passwords' => 'required|min:8',
+            'confirm_password' => 'required|same:passwords',
             'gender' => 'required',
             'date_of_birth' => 'required|date|after:01/01/1900|before:today',
             'country_id' => 'required',
@@ -66,7 +66,7 @@ class AuthController extends Controller
         User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'password' => Hash::make($data['passwords']),
             'gender' => $data['gender'],
             'date_of_birth' => $data['date_of_birth'],
             'country_id' => $data['country_id'],

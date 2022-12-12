@@ -28,10 +28,10 @@
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="mb-2"> Password </label>
-                                    <input value = "{{old ('password')}}" type="password" placeholder="Enter Your Password" id="password" class="form-control"
-                                        name="password" required>
-                                    @if ($errors->has('password'))
-                                        <span class="text-danger">{{ $errors->first('password') }}</span>
+                                    <input value = "{{old ('passwords')}}" type="password" placeholder="Enter Your Password" id="password" class="form-control"
+                                        name="passwords" required>
+                                    @if ($errors->has('passwords'))
+                                        <span class="text-danger">{{ $errors->first('passwords') }}</span>
                                     @endif
                                 </div>
                                 <div class="form-group mb-3">
