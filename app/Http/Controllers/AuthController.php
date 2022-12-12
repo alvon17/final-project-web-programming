@@ -24,8 +24,8 @@ class AuthController extends Controller
     public function customLogin(Request $request)
     {
         $request->validate([
-            'email' => 'required',
-            'password' => 'required',
+            'email' => 'required|email|exists:users,email',
+            'password' => 'required|min:8',
         ]);
 
         $credentials = $request->only('email', 'password');
