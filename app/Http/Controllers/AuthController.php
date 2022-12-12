@@ -80,11 +80,11 @@ class AuthController extends Controller
     public function dashboard()
     {
         // if (Auth::check()) {
-        //     return view('dashboard');
+        //     return view('index');
         // }
 
         // return redirect('login')->withSuccess('You are not allowed to access');
-        return view('dashboard');
+        return view('index');
     }
 
     public function logout()
