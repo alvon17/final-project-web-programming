@@ -10,13 +10,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
-
-Validator::extend('before_today_and_after_1900', function ($attribute, $value, $parameters, $validator) {
-    $date = \Carbon\Carbon::parse($value);
-    return $date->isBefore(now()) && $date->year >= 1900;
-});
 
 class AuthController extends Controller
 {
@@ -62,7 +55,7 @@ class AuthController extends Controller
             'password' => 'required|min:8',
             'confirm_password' => 'required|same:password',
             'gender' => 'required',
-            'date_of_birth' => 'required|date|before_today_and_after_1900',
+            'date_of_birth' => 'required|date|after:01/01/1900|before:today',
             'country' => 'required',
         ]);
 
@@ -71,7 +64,7 @@ class AuthController extends Controller
         User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password'])
+            'password' => Hash::make($data['password']),
         ]);
 
         return redirect('login')->withSuccess('You have registered');
