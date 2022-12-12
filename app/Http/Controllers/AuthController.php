@@ -54,6 +54,9 @@ class AuthController extends Controller
             'email' => 'required|email|unique:users|regex:/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/',
             'password' => 'required|min:8',
             'confirm_password' => 'required|same:password',
+            'gender' => 'required',
+            'date_of_birth' => 'required',
+            'country' => 'required',
         ]);
 
         $data = $request->all();
