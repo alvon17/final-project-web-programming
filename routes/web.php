@@ -14,6 +14,7 @@ use App\Http\Controllers\AuthController;
 |
 */
 
+Route::get('/', [AuthController::class, 'dashboard']);
 Route::get('/dashboard', [AuthController::class, 'dashboard']);
 Route::get('/login', [AuthController::class, 'login']);
 Route::post('/custom-login', [AuthController::class, 'customLogin']);
