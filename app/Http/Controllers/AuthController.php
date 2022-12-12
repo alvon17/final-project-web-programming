@@ -65,6 +65,9 @@ class AuthController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'gender' => $data['gender'],
+            'date_of_birth' => $data['date_of_birth'],
+            'country' => $data['country'],
         ]);
 
         return redirect('login')->withSuccess('You have registered');
