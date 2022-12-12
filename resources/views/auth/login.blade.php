@@ -4,14 +4,11 @@
     @if (session()->has('message'))
         @foreach (explode('-', session('message')) as $message)
             <script>
-                Swal.fire({
-                    title: '{{ session('title') }}',
-                    text: '{{ session('message') }}',
-                    type: '{{ session('type') }}',
-                });
+                Swal.fire('{{$message}}')
             </script>
         @endforeach
     @endif
+    <!-- <script> Swal.fire('Any fool can use a computer') </script> -->
 
     <div class="login-form">
         <div class="container-fluid">
