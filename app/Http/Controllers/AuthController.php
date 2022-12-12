@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Session;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\MessageBag;
+use Illuminate\Support\Facades\Redirect;
 
 class AuthController extends Controller
 {
@@ -25,7 +27,7 @@ class AuthController extends Controller
     {
         $request->validate([
             'email' => 'required|email|exists:users,email',
-            'password' => 'required|min:8',
+            'password' => 'required',
         ]);
 
         $credentials = $request->only('email', 'password');
@@ -39,7 +41,9 @@ class AuthController extends Controller
                 ->withSuccess('Signed in');
         }
 
-        return redirect('login')->withSuccess('Login details are not valid');
+        $errors = new MessageBag(['password' => ['Wrong Password']]);
+
+        return Redirect::back()->withErrors($errors);
     }
 
 
