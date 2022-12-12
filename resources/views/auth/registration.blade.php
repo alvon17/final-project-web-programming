@@ -11,6 +11,7 @@
                             <form action="{{ url('custom-registration') }}" method="POST">
                                 @csrf
                                 <div class="form-group mb-3">
+                                    <label class="mb-2"> Name </label>
                                     <input type="text" placeholder="Name" id="name" class="form-control"
                                         name="name" required autofocus>
                                     @if ($errors->has('name'))
@@ -18,6 +19,7 @@
                                     @endif
                                 </div>
                                 <div class="form-group mb-3">
+                                    <label class="mb-2"> Email </label>
                                     <input type="text" placeholder="Email" id="email_address" class="form-control"
                                         name="email" required autofocus>
                                     @if ($errors->has('email'))
@@ -25,6 +27,7 @@
                                     @endif
                                 </div>
                                 <div class="form-group mb-3">
+                                    <label class="mb-2"> Password </label>
                                     <input type="password" placeholder="Password" id="password" class="form-control"
                                         name="password" required>
                                     @if ($errors->has('password'))
@@ -32,6 +35,7 @@
                                     @endif
                                 </div>
                                 <div class="form-group mb-3">
+                                    <label class="mb-2"> Confirm Password </label>
                                     <input type="password" placeholder="Confirm Password" id="password"
                                         class="form-control" name="confirm_password" required>
                                     @if ($errors->has('confirm_password'))
@@ -39,9 +43,36 @@
                                     @endif
                                 </div>
                                 <div class="form-group mb-3">
-                                    <div class="checkbox">
-                                        <label><input type="checkbox" name="remember"> Remember Me</label>
-                                    </div>
+                                    <label class="mb-2"> Gender </label><br>
+                                    <!-- <input type="radio" placeholder="Confirm Password" id="password"
+                                        class="form-control" name="confirm_password" required> -->
+                                        <input type="radio" id="male" name="gender" value="male">
+                                            <label for="male">Male</label><br>
+                                        <input type="radio" id="female" name="gender" value="female">
+                                            <label for="female">Female</label><br>
+                                    @if ($errors->has('gender'))
+                                        <span class="text-danger">{{ $errors->first('gender') }}</span>
+                                    @endif
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label class="mb-2"> Date of Birth </label>
+                                    <input type="date"
+                                        class="form-control" name="date_of_birth" value = "date_of_birth" id="date_of_birth">
+                                    @if ($errors->has('date_of_birth'))
+                                        <span class="text-danger">{{ $errors->first('date_of_birth') }}</span>
+                                    @endif
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label class="mb-2"> Country </label>
+                                    <select class="form-select form-select-sm" name = "country" value ="country" id ="country">
+                                        <option selected>Choose a country</option>
+                                        <option value="1">Indonesia</option>
+                                        <option value="2">Malaysia</option>
+                                        <option value="3">Filipina</option>
+                                    </select>
+                                    @if ($errors->has('country'))
+                                        <span class="text-danger">{{ $errors->first('country') }}</span>
+                                    @endif
                                 </div>
                                 <div class="d-grid mx-auto">
                                     <button type="submit" class="btn btn-dark btn-block">Register</button>
