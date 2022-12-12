@@ -66,6 +66,9 @@
                                     <label class="mb-2"> Country </label>
                                     <select class="form-select form-select-sm" name = "country" value ="country" id ="country">
                                         <option selected>Choose a country</option>
+                                        @foreach ($countries as $country)
+                                            <option value = "{{ $country -> id }}"> {{ $country -> country }}" </option>
+                                        @endforeach
                                         <option value="1">Indonesia</option>
                                         <option value="2">Malaysia</option>
                                         <option value="3">Filipina</option>
