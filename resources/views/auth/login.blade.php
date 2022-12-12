@@ -20,14 +20,14 @@
                             <form method="POST" action="{{ url('custom-login') }}">
                                 @csrf
                                 <div class="form-group mb-3">
-                                    <input type="text" placeholder="Email" id="email" class="form-control"
+                                    <input type="text" placeholder="Enter Your Email" id="email" class="form-control"
                                         name="email" required autofocus>
                                     @if ($errors->has('email'))
                                         <span class="text-danger">{{ $errors->first('email') }}</span>
                                     @endif
                                 </div>
                                 <div class="form-group mb-3">
-                                    <input type="password" placeholder="Password" id="password" class="form-control"
+                                    <input type="password" placeholder="Enter Your Password" id="password" class="form-control"
                                         name="password" required>
                                     @if ($error = $errors->first('password'))
                                         <span class="text-danger">{{ $error }}</span>
