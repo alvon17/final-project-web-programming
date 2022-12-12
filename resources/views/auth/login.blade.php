@@ -4,7 +4,7 @@
     @if (session()->has('message'))
         @foreach (explode('-', session('message')) as $message)
             <script>
-                alert('{{ $message }}');
+                alert('{{ $message }}');    
             </script>
         @endforeach
     @endif
